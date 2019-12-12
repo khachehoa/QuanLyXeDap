@@ -1,0 +1,20 @@
+﻿@model CleanArchitecture.Application.ViewModels.KhachHangViewModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Xóa</h1>
+
+<h3>Bạn Có Muốn Xóa Không ?</h3>
+<div>
+    <h4>Khách Hàng</h4>
+    <hr />
+    
+    
+    <form asp-action="Xóa">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Xóa" class="btn btn-danger" /> |
+        <a asp-action="Index">Quay lại</a>
+    </form>
+</div>

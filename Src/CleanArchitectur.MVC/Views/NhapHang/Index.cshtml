@@ -1,0 +1,49 @@
+﻿@model IEnumerable<CleanArchitecture.Application.ViewModels.NhapHangViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Nhập hàng</h1>
+
+<p>
+    <a asp-action="Create">Thêm</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nhân Viên
+            </th>
+            <th>
+                Ngày
+            </th>
+            <th>
+                Giá
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdnguoiDungNavigation.TenNguoiDung)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ngaymua)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gia)
+            </td>
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Sửa</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Chi Tiết</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

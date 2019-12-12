@@ -1,0 +1,40 @@
+﻿@model CleanArchitecture.Application.ViewModels.NhapHangViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Sửa</h1>
+
+<h4>Nhập hàng</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label  class="control-label">Nhân Viên</label>
+                <select asp-for="IdnguoiDung" class="form-control" asp-items="@(new SelectList(ViewBag.NguoiDung,"Id","TenNguoiDung"))"></select>
+                <span asp-validation-for="IdnguoiDung" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Ngày</label>
+                <input asp-for="Ngaymua" class="form-control" />
+                <span asp-validation-for="Ngaymua" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Lưu" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Quay Lại</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

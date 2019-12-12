@@ -1,0 +1,20 @@
+﻿@model CleanArchitecture.Application.ViewModels.CTHoaDonViewModel
+
+@{
+    ViewData["Title"] = "DeleteCT";
+}
+
+<h1>Xóa</h1>
+
+<h3>Bạn Có Muốn Xóa Không ?</h3>
+<div>
+    <h4>Chi tiết hóa đơn</h4>
+    <hr />
+ 
+    
+    <form asp-action="DeleteCT">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Xóa" class="btn btn-danger" /> |
+        <a asp-action="Index">Quay Lại</a>
+    </form>
+</div>

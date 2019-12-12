@@ -1,0 +1,34 @@
+﻿@model CleanArchitecture.Application.ViewModels.CTNhapHangViewModel
+
+@{
+    ViewData["Title"] = "DeleteCT";
+}
+
+<h1>Xóa</h1>
+
+<h3>Bạn Có Muốn Xóa Không ?</h3>
+<div>
+    <h4>Chi Tiết Hóa Đơn</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Xe
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdxeNavigation.Ten)
+        </dd>
+        <dt class="col-sm-2">
+            Số lượng
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Soluong)
+        </dd>
+
+    </dl>
+    
+    <form asp-action="DeleteCT">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Xóa" class="btn btn-danger" /> |
+        <a asp-action="Index">Quay Lại</a>
+    </form>
+</div>

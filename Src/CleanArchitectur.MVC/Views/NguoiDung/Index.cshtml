@@ -1,0 +1,70 @@
+﻿@model IEnumerable<CleanArchitecture.Application.ViewModels.NguoiDungViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Nhân Viên</h1>
+
+<p>
+    <a asp-action="Create">Thêm nhân viên</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Tên
+            </th>
+            <th>
+                Tài Khoản
+            </th>
+            <th>
+                Mật Khẩu
+            </th>
+            <th>
+                Ngày Tạo
+            </th>
+            <th>
+                Số Điện Thoại
+            </th>
+            <th>
+                Mail
+            </th>
+            <th>
+                Vai Trò
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenNguoiDung)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaiKhoan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatKhau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayTao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoDienThoai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VaiTro)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Sửa</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

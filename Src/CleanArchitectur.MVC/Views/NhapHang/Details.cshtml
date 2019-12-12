@@ -1,0 +1,79 @@
+﻿@model CleanArchitecture.Application.ViewModels.NhapHangDetails
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Chi Tiết</h1>
+
+<div>
+    <h4>Nhập hàng</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Nhân Viên
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.nhaphang.IdnguoiDungNavigation.TenNguoiDung)
+        </dd>
+        <dt class="col-sm-2">
+            Ngày
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.nhaphang.Ngaymua)
+        </dd>
+        <dt class="col-sm-2">
+            Giá
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.nhaphang.Gia)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <h4>Chi Tiết Nhập hàng</h4>
+    <hr />
+    <p>
+        <a asp-action="CreateCTHD">Thêm</a>
+    </p>
+    <dl class="row">
+        <dd>
+            <table class="table">
+                <thead>
+                    <tr>
+
+                        <th>
+                            Xe
+                        </th>
+                        <th>
+                            Số Lượng
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.ctnhaphang)
+                    {
+                    <tr>
+                        
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdxeNavigation.Ten)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Soluong)
+                        </td>
+                        <td>
+                            <a asp-action="DeleteCT" asp-route-id="@item.Id">Xóa</a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.nhaphang.Id">Sửa</a>
+    <a asp-action="Index">Quay Lại</a>
+</div>

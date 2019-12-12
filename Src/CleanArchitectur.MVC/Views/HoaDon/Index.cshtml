@@ -1,0 +1,54 @@
+﻿@model IEnumerable<CleanArchitecture.Application.ViewModels.HoaDonViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Hóa Đơn</h1>
+
+<p>
+    <a asp-action="Create">Thêm Hóa Đơn</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Khách Hàng
+            </th>
+            <th>
+                Nhân Viên
+            </th>
+            <th>
+                Ngày
+            </th>
+            <th>
+                Thành Tiền
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdkhachHangNavigation.Ten)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdnguoiDungNavigation.TenNguoiDung)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ngaymua)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gia)
+            </td>
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Sữa</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Chi Tiết</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

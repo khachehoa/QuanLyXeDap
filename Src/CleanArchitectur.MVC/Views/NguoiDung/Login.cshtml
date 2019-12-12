@@ -1,0 +1,50 @@
+﻿@model CleanArchitecture.Application.ViewModels.NguoiDungViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Đăng Nhập</h1>
+@if (ViewBag.KTC != null)
+{
+    <div class="alert alert-danger">@ViewBag.KTC</div>
+}
+
+@if (ViewBag.DNTC != null)
+{
+    <div class="alert alert-success">@ViewBag.DNTC</div>
+}
+<div class="row">
+    <div class="col-md-4">
+        <section>
+            <form id="account" method="post" novalidate="novalidate">
+                
+                <hr>
+                <div class="text-danger validation-summary-valid" data-valmsg-summary="true">
+                    <ul>
+                        <li style="display:none"></li>
+                    </ul>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Tài Khoản</label>
+                    <input asp-for="TaiKhoan" class="form-control">
+                    <span asp-validation-for="TaiKhoan" class="text-danger field-validation-valid"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Mật Khẩu</label>
+                    <input class="form-control" type="password" asp-for="MatKhau">
+                    <span asp-validation-for="MatKhau" class="text-danger field-validation-valid"></span>
+                </div>
+                
+                <div class="form-group">
+                    <button id="login-submit" type="submit" class="btn btn-primary">Đăng Nhập</button>
+                </div>
+                <div class="form-group">
+                    <p>
+                        Lưu ý: Chỉ Có Tài Khoản Người Quản Lý mới vào được bảng "Nhân Viên".
+                    </p>
+                    
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
